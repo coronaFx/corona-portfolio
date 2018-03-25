@@ -15,6 +15,10 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
       {
         path: 'portfolio',
         redirectTo: 'portfolio/all',
+      },
+      {
+        path: '**',
+        redirectTo: 'main'
       }
     ]),
   ],
