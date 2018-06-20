@@ -20,7 +20,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
         path: '**',
         redirectTo: 'main'
       }
-    ]),
+    ], {useHash: true}),
   ],
   exports: [RouterModule]
 })
