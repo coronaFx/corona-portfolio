@@ -4,20 +4,21 @@
   </div>
   <div class="navigation__links" #navigation >
     <div routerLinkActive="active"
-         class="navigation__links--wrapper">
+         class="navigation__links--wrapper" (click)="close()">
       <a #main routerLink="/main">Main</a>
     </div>
     <div routerLinkActive="active"
          [routerLinkActiveOptions]="{exact: true}"
          class="navigation__links--wrapper">
-      <a routerLink="/portfolio/all">Portfolio</a>
-      <ul class="nested-links">
-        <li *ngFor="let item of items"
-            routerLinkActive="active">
-          <a [routerLink]="'/portfolio/' + item.link">{{ item.name }}</a>
-        </li>
-      </ul>
+      <a routerLink="/portfolio/all" (click)="close()">Portfolio</a>
+
     </div>
+    <ul class="nested-links">
+      <li *ngFor="let item of items"
+          routerLinkActive="active" (click)="close()">
+        <a [routerLink]="'/portfolio/' + item.link">{{ item.name }}</a>
+      </li>
+    </ul>
   </div>
   <div class="navigation__social-networks">
     <div class="navigation__social-networks--icons">

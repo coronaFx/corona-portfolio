@@ -19,10 +19,6 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   public items = [
     {
-      name: 'All',
-      link: 'all'
-    },
-    {
       name: 'Color Correction',
       link: 'color-correction'
     },
@@ -75,6 +71,9 @@ export class NavigationComponent implements OnInit, AfterViewInit {
     }
   }
 
+  public close() {
+    this.appService.isMenu = false;
+  }
 
 
 }
