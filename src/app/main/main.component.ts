@@ -37,4 +37,10 @@ export class MainComponent implements OnInit {
     this.renderer.setStyle(imgEl, 'opacity', '1');
   }
 
+  public showMenu() {
+    setTimeout( () => {
+      this.appService.isMenu = true;
+    }, 10);
+  }
+
 }

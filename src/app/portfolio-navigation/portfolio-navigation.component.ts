@@ -58,11 +58,14 @@ export class PortfolioNavigationComponent implements OnInit {
   getData(){
     this.route.paramMap
       .subscribe(params => {
-        // console.log(params.get('id'));
-        this.appService.routeId = params.get('id')
+        this.appService.routeId = params.get('id');
       });
   }
 
-
+  public showMenu() {
+    setTimeout( () => {
+      this.appService.isMenu = true;
+    }, 10);
+  }
 
 }

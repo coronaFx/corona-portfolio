@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AppService } from '../app-service.service';
 
 @Component({
   selector: 'app-navigation',
@@ -11,6 +12,10 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   @ViewChild('main')main: ElementRef;
   @ViewChild('portfolio')portfolio: ElementRef;
 
+  @HostListener('document:click', ['$event'])
+  onClick($event) {
+    this.onHostClick($event);
+  }
 
   public items = [
     {
@@ -48,7 +53,9 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   ]
 
   constructor(private renderer: Renderer2,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private element: ElementRef,
+              private appService: AppService) { }
 
   ngOnInit() {
   }
@@ -56,6 +63,18 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
 
   }
+
+  get isOpen() {
+    return this.appService.isMenu;
+  }
+
+  private onHostClick(event: Event): void {
+    const isContains: boolean = this.element.nativeElement.contains(<Node>event.target);
+    if (!isContains) {
+      this.appService.isMenu = false;
+    }
+  }
+
 
 
 }

@@ -96,10 +96,17 @@
 
 }
 
-@media (max-width: 900px) {
+@media only screen
+and (max-device-width : 1024px)  {
   .portfolio-page__block_image{
     width: calc(100% / 3);
   }
 }
 
+@media only screen
+and (max-device-width : 768px)  {
+  .portfolio-page__block_image{
+    width: calc(100% / 2);
+  }
+}
 

@@ -33,7 +33,9 @@ export class AppComponent implements OnInit{
       .subscribe( (res) => {
         elem.vimeoData = res[0];
         // console.log('res', this.appService.data);
-      })
+      });
   }
+
+
 
 }

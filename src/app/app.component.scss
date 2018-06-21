@@ -18,3 +18,11 @@ app-footer{
   grid-column-start: 2;
   grid-row-start: 2;
 }
+
+@media only screen
+and (max-device-width : 1024px)  {
+  .app-page{
+    grid-template-columns: 0 1fr;
+    grid-template-rows: 1fr 50px;
+  }
+}
