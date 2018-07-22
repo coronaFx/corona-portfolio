@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AppService } from '../app-service.service';
 
@@ -9,6 +9,13 @@ import { AppService } from '../app-service.service';
 })
 export class MainComponent implements OnInit {
 
+  @ViewChild('frame')frame: ElementRef;
+
+
+  @HostListener('document:click', ['$event'])
+  onClick($event) {
+    if (!this.show) this.onHostClick($event);
+  }
 
 
   private url: SafeResourceUrl;
@@ -22,7 +29,10 @@ export class MainComponent implements OnInit {
 
   mediaDownload(_id:string) {
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/' + _id + '?autoplay=1&title=0&byline=0&portrait=0');
-    this.show = false;
+    setTimeout( () => {
+      this.show = false;
+    },0);
+
   }
 
   hideVideo(){
@@ -41,6 +51,13 @@ export class MainComponent implements OnInit {
     setTimeout( () => {
       this.appService.isMenu = true;
     }, 10);
+  }
+
+  private onHostClick(event: Event): void {
+    const isContains: boolean = this.frame.nativeElement.contains(<Node>event.target);
+    if (!isContains && !this.show) {
+      this.show = true;
+    }
   }
 
 }
