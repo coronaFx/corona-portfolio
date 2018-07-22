@@ -1,4 +1,7 @@
-import { AfterViewInit, Component, ElementRef, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit, Component, ElementRef, HostListener, QueryList, Renderer2, ViewChild,
+  ViewChildren
+} from '@angular/core';
 import { AppService } from '../app-service.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -8,6 +11,13 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent {
+
+  @ViewChild('frame')frame: ElementRef;
+
+  @HostListener('document:click', ['$event'])
+  onClick($event) {
+    if (!this.show) this.onHostClick($event);
+  }
 
   private url: SafeResourceUrl;
   public show: boolean = true;
@@ -21,7 +31,9 @@ export class PortfolioComponent {
   mediaDownload(_id:string, item) {
     this.description = item['vimeoData']['description'] || '';
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/' + _id + '?autoplay=1&title=0&byline=0&portrait=0');
-    this.show = false;
+    setTimeout( () => {
+      this.show = false;
+    },0);
   }
 
   hideVideo(){
@@ -39,6 +51,11 @@ export class PortfolioComponent {
 
   }
 
-
+  private onHostClick(event: Event): void {
+    const isContains: boolean = this.frame.nativeElement.contains(<Node>event.target);
+    if (!isContains && !this.show) {
+      this.show = true;
+    }
+  }
 
 }

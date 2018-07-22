@@ -8,9 +8,9 @@
       <a #main routerLink="/main">Main</a>
     </div>
     <div routerLinkActive="active"
-         [routerLinkActiveOptions]="{exact: true}"
+         [routerLinkActiveOptions]="{exact: false}"
          class="navigation__links--wrapper">
-      <a routerLink="/portfolio/all" (click)="close()">Portfolio</a>
+      <a routerLink="/portfolio" (click)="close()">Portfolio</a>
 
     </div>
     <ul class="nested-links">
@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="navigation__social-networks--all-rights">
-      <p>&#169; 2016 CoronaFX. ALL RIGHTS RESERVED</p>
+      <!--<p>&#169; 2016 CoronaFX. ALL RIGHTS RESERVED</p>-->
     </div>
   </div>
 </div>

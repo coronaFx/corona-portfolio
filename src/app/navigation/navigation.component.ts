@@ -19,6 +19,10 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   public items = [
     {
+      name: 'All',
+      link: 'all'
+    },
+    {
       name: 'Color Correction',
       link: 'color-correction'
     },

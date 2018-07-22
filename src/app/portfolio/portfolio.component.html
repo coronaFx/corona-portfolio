@@ -25,11 +25,12 @@
   <div class="portfolio-page__video"
        *ngIf="!show">
 
-    <div (click)="hideVideo()"
-         class="portfolio-page__video_close">
-    </div>
+    <!--<div (click)="hideVideo()"-->
+         <!--class="portfolio-page__video_close">-->
+    <!--</div>-->
 
-    <iframe [src]="url"
+    <iframe #frame
+      [src]="url"
             width="800"
             height="450"
             frameBorder="0"
