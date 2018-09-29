@@ -42,31 +42,13 @@
       }
     }
   }
-  &__video{
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
 
-    &_close{
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      top: 20px;
-      right: 20px;
-      background-image: url("../../assets/icons/delete.png");
-    }
-
-  }
+.main-page--description{
+  color: #fff;
+  font-size: 18px;
+  width: 90%;
+  padding: 0 10px 10px 10px;
 }
 
 
@@ -74,6 +56,18 @@
 and (max-device-width : 1024px)  {
   .portfolio-navigation {
     display: none;
+  }
+
+  .main-page__image_title{
+    display: none;
+  }
+
+  .main-page__image{
+    padding-bottom: 15px;
+  }
+
+  .main-page{
+    overflow-y: auto;
   }
 
   .portfolio-navigation__wrapper{
@@ -96,19 +90,17 @@ and (max-device-width : 1024px)  {
       height: 40px;
     }
     &-icon{
-      background-image: url("../../assets/icons/menu.png");
+      background: url("../../assets/icons/menu.png") no-repeat;
       background-size: contain;
-      background-repeat: no-repeat;
       width: 40px;
       height: 40px;
 
     }
     .logo-icon{
-      background-image: url("../../assets/icons/main-logo.png");
+      background: url("../../assets/icons/main-logo.png") no-repeat;
       background-size: cover;
-      background-repeat: no-repeat;
-      width: 80px;
-      height: 80px;
+      width: 65px;
+      height: 60px;
 
     }
   }

@@ -4,7 +4,6 @@
     <div class="menu">
       <span class="menu-icon" (click)="showMenu()"></span>
       <span class="logo-icon"></span>
-      <span></span>
     </div>
   </div>
 
@@ -13,11 +12,7 @@
          class="main-page__image">
 
       <div class="main-page__image_title">
-           <!--*ngIf="item['vimeoData']">-->
-        <h2>
-          <!--{{ item['vimeoData']['title'] }}-->
-          Main
-        </h2>
+        <h2>Main</h2>
       </div>
 
       <div class="main-page__image_item" *ngIf="item['vimeoData']">
@@ -26,23 +21,16 @@
              [src]="item['vimeoData']['thumbnail_large']"
              (load)="onImageLoad(imageItem)">
 
-        <p [innerHTML]="item['vimeoData']['description'] || 'Lorem insup...'">
-        </p>
+        <div class="main-page--description" [innerHTML]="item['vimeoData']['description'] || 'Lorem insup...'">
+        </div>
       </div>
     </div>
   </ng-container>
-  <div class="main-page__video"
-       *ngIf="!show">
+
+  <app-video *ngIf="show"
+             [url]="url"
+             (closeEvent)="show = false"
+  ></app-video>
 
 
-    <iframe #frame
-      [src]="url"
-            width="800"
-            height="450"
-            frameBorder="0"
-            webkitAllowFullScreen
-            mozAllowFullScreen
-            allowFullScreen>
-    </iframe>
-  </div>
 </div>

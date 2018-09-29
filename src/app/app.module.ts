@@ -9,10 +9,11 @@ import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { CommonModule } from '@angular/common';
-import { AppRoutingRoutes } from './app-routing.routes';
 import { AppService } from './app-service.service';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { PortfolioNavigationComponent } from './portfolio-navigation/portfolio-navigation.component';
+import { PortfolioNavigationComponent } from './portfolio/portfolio-navigation/portfolio-navigation.component';
+import { AppRouter } from './app-routing.routes';
+import { VideoComponent } from './video/video.component';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { PortfolioNavigationComponent } from './portfolio-navigation/portfolio-n
     BrowserModule,
     HttpClientModule,
     CommonModule,
-    AppRoutingRoutes,
+    AppRouter,
     HttpClientModule
   ],
   declarations: [
@@ -30,7 +31,8 @@ import { PortfolioNavigationComponent } from './portfolio-navigation/portfolio-n
     MainComponent,
     PortfolioComponent,
     SpinnerComponent,
-    PortfolioNavigationComponent
+    PortfolioNavigationComponent,
+    VideoComponent,
   ],
   exports: [
     PortfolioNavigationComponent

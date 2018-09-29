@@ -1,7 +1,4 @@
-import {
-  AfterViewInit, Component, ElementRef, HostListener, QueryList, Renderer2, ViewChild,
-  ViewChildren
-} from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { AppService } from '../app-service.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -12,19 +9,12 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class PortfolioComponent {
 
-  @ViewChild('frame')frame: ElementRef;
+  public url: SafeResourceUrl = null;
+  public show: boolean = false;
+  public description: string = null;
 
-  @HostListener('document:click', ['$event'])
-  onClick($event) {
-    if (!this.show) this.onHostClick($event);
-  }
-
-  private url: SafeResourceUrl;
-  public show: boolean = true;
-  description = '';
-
-  constructor(private renderer: Renderer2,
-              private appService: AppService,
+  constructor(private appService: AppService,
+              private renderer: Renderer2,
               private sanitizer: DomSanitizer){}
 
 
@@ -32,14 +22,9 @@ export class PortfolioComponent {
     this.description = item['vimeoData']['description'] || '';
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/' + _id + '?autoplay=1&title=0&byline=0&portrait=0');
     setTimeout( () => {
-      this.show = false;
+      this.show = true;
     },0);
   }
-
-  hideVideo(){
-    this.show = true;
-  }
-
 
   get items(){
     return this.appService.filteredData;
@@ -51,11 +36,5 @@ export class PortfolioComponent {
 
   }
 
-  private onHostClick(event: Event): void {
-    const isContains: boolean = this.frame.nativeElement.contains(<Node>event.target);
-    if (!isContains && !this.show) {
-      this.show = true;
-    }
-  }
 
 }

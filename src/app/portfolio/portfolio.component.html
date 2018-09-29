@@ -22,27 +22,10 @@
     </div>
   </div>
 
-  <div class="portfolio-page__video"
-       *ngIf="!show">
-
-    <!--<div (click)="hideVideo()"-->
-         <!--class="portfolio-page__video_close">-->
-    <!--</div>-->
-
-    <iframe #frame
-      [src]="url"
-            width="800"
-            height="450"
-            frameBorder="0"
-            webkitAllowFullScreen
-            mozAllowFullScreen
-            allowFullScreen>
-    </iframe>
-
-    <div [innerHTML]="description">
-    </div>
-
-  </div>
-
+  <app-video *ngIf="show"
+             [url]="url"
+             [description]="description"
+             (closeEvent)="show = false"
+  ></app-video>
 
 </div>
