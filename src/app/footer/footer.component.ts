@@ -7,7 +7,7 @@ import { AppService } from '../app-service.service';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  data;
+  public data: any;
 
   constructor(private appService: AppService) { }
 
@@ -15,6 +15,6 @@ export class FooterComponent implements OnInit {
     this.appService.getData('./assets/data/footer.json')
       .subscribe( (data) => {
         this.data = data;
-      })
+      });
   }
 }

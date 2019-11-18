@@ -134,6 +134,7 @@ and (max-device-width : 1024px)  {
   .nested-links {
     display: flex;
     flex-direction: column;
+    padding: 10px 0;
     & > li {
       display: flex;
       height: 34px;

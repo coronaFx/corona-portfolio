@@ -1,6 +1,6 @@
 [
   {"link":"258606791","default":true,"all":true,"color-correction":true},
-  {"link":"292693532","color-correction":true}, 
+  {"link":"292693532","all":true,"color-correction":true},
   {"link":"126906598","all":true,"color-correction":true},
   {"link":"249502382","all":true,"compositing":true},
   {"link":"117655772","all":true,"color-correction":true},
@@ -13,7 +13,6 @@
   {"link":"230682214","all":true,"vr":true},
   {"link":"205038048","all":true,"vr":true},
   {"link":"204872598","all":true,"vr":true},
-  {"link":"248699345","all":true,"motion-graphics":true},
   {"link":"248699345","all":true,"motion-graphics":true},
   {"link":"223905281","all":true,"motion-graphics":true}
 ]

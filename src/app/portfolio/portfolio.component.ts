@@ -26,7 +26,7 @@ export class PortfolioComponent {
     },0);
   }
 
-  get items(){
+  get items(): any {
     return this.appService.filteredData;
   }
 
@@ -36,5 +36,7 @@ export class PortfolioComponent {
 
   }
 
-
+  onError(imgEl, textEl) {
+    console.log(imgEl, textEl);
+  }
 }

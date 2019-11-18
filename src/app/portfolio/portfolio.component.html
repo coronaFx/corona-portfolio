@@ -5,21 +5,22 @@
 
 
   <div class="portfolio-page__block">
-    <div (click)="mediaDownload(item.link, item)"
-         *ngFor="let item of items"
-         class="portfolio-page__block_image">
+    <ng-container *ngFor="let item of items">
+      <div *ngIf="item['vimeoData']"
+           (click)="mediaDownload(item.link, item)"
+           class="portfolio-page__block_image">
 
-      <img #imageItem *ngIf="item['vimeoData']"
-           (load)="onImageLoad(imageItem, imageText)"
+        <img #imageItem *ngIf="item['vimeoData']"
+             (load)="onImageLoad(imageItem, imageText)"
+             [src]="item['vimeoData']['thumbnail_large']">
 
-           [src]="item['vimeoData']['thumbnail_large']">
-
-      <div #imageText class="text-wrapper">
-        <p *ngIf="item['vimeoData']">
-          {{ item['vimeoData']['title'] }}
-        </p>
+        <div #imageText class="text-wrapper">
+          <p *ngIf="item['vimeoData']">
+            {{ item['vimeoData']['title'] }}
+          </p>
+        </div>
       </div>
-    </div>
+    </ng-container>
   </div>
 
   <app-video *ngIf="show"

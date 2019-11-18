@@ -1,6 +1,6 @@
 <div class="footer">
   <div *ngFor="let item of data" class="footer__data">
     <p>{{ item.name }}</p>
-    <h3>{{ item.mail }}</h3>
+    <a href="{{'mailto: ' + item.mail}}">{{ item.mail }}</a>
   </div>
 </div>
